@@ -17,7 +17,7 @@ model Repository {
 
     repo_id Int @unique
     name String
-    description String
+    description String?
     route String
     user_name String
 }

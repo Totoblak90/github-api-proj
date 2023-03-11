@@ -4,7 +4,7 @@ import { ConfigService } from '@nestjs/config/dist';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 import * as flatted from 'flatted';
-import { GithubFullResponse, Repo } from './dto/repo.dto';
+import { GithubFullResponse, Repo } from 'src/interfaces';
 
 @Injectable({})
 export class GithubService {
