@@ -1,9 +1,9 @@
-export class Repo  {
-    id: number = 0;
-    name: string = '';
-    description: string = '';
-    route: string = '';
-    user_name: string = '';
+export interface Repo  {
+    id: number;
+    name: string;
+    description: string;
+    route: string;
+    user_name: string;
 }
 
 export interface GithubFullResponse {
