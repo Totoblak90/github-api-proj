@@ -20,4 +20,19 @@ model Repository {
     description String?
     route String
     user_name String
+
+    commits Commit[]
+
+    @@map("repositories")
+}
+
+model Commit {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  repo_id Int @unique
+  repository Repository @relation(fields: [repo_id], references: [repo_id])
+
+  @@map("commits")
 }
