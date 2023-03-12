@@ -1,6 +1,5 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config/dist';
 import { Observable } from 'rxjs';
 import { map, filter, tap, catchError, take } from 'rxjs/operators';
 import * as flatted from 'flatted';
@@ -10,17 +9,16 @@ import { PrismaService } from '../prisma/prisma.service';
 @Injectable({})
 export class GithubService {
 
-    constructor(private httpService: HttpService, private confiService: ConfigService, private prismaService: PrismaService) {}
+    constructor(private httpService: HttpService, private prismaService: PrismaService) {}
 
     getPublicRepositories(): Observable<Repo[]> {
-        console.log(this.confiService.get('GITHUB_ACCES_TOKEN'))
         return this.httpService.get(`https://api.github.com/users/Totoblak90/repos`, {
             params: {
                 visibility: 'public',
               },
             headers: {
                 Accept: 'application/vnd.github.v3+json',
-                Authorization: `Bearer ${this.confiService.get('GITHUB_ACCES_TOKEN')}`
+                Authorization: `Bearer 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`
             },
         }).pipe(
             map(response => flatted.parse(flatted.stringify(response.data)) as GithubFullResponse[]),
@@ -41,7 +39,7 @@ export class GithubService {
         return this.httpService.get(`https://api.github.com/repos/Totoblak90/${repoName}/commits`, {
             headers: {
                 Accept: 'application/vnd.github.v3+json',
-                Authorization: `Bearer ${this.confiService.get('GITHUB_ACCES_TOKEN')}`
+                Authorization: `Bearer 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`
             },
         })
         .pipe(
@@ -59,7 +57,7 @@ export class GithubService {
                 this.httpService.get(`https://api.github.com/repos/Totoblak90/${repository.name}/commits/${commit_id}`, {
                         headers: {
                             Accept: 'application/vnd.github.v3+json',
-                            Authorization: `Bearer ${this.confiService.get('GITHUB_ACCES_TOKEN')}`
+                            Authorization: `Bearer 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`
                         },
                     })
                     .pipe(
