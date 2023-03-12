@@ -58,7 +58,7 @@ This command will show the version of Docker installed on your system, indicatin
 2. Once the project is cloned, navigate from the terminal to the server folder, which is located inside the github-api-proj folder.
 3. **IMPORTANT**: Once inside that folder, create a file named ".env" and copy the following environment variables inside it:
     `DATABASE_URL="postgresql://postgres:123@localhost:5434/nest?schema=public"`
-    `GITHUB_ACCES_TOKEN="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"`
+    `GITHUB_ACCES_TOKEN="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"`
 4. Run the command: `npm run init`, which will install all the packages and perform all the necessary actions to run the project. Wait for it to finish.
 5. Once finished, run the command `npm run start:dev` to start the server and keep it running!
 6. Open another terminal and navigate to the client folder, which is located inside the github-api-proj folder that you cloned.
