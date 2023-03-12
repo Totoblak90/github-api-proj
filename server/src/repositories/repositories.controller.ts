@@ -9,6 +9,11 @@ export class RepositoriesController {
 
     constructor(private repositoriesService: RepositoriesService) {}
 
+    @Get('/search')
+    async filterCommitsByDate(@Query('term') term: string) {
+        return await this.repositoriesService.filterRepos(term);
+    }
+
     @Get()
     async repoList() {
         try {
@@ -16,10 +21,5 @@ export class RepositoriesController {
         } catch (error) {
             return error;
         }
-    }
-
-    @Get('/search')
-    async filterCommitsByDate(@Query('term') term: string) {
-        return await this.repositoriesService.filterRepos(term);
     }
 }

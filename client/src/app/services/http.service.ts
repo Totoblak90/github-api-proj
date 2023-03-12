@@ -17,6 +17,10 @@ export class HttpService {
     return this.http.get<Repository[]>(`${this.apiBaseUrl}/repositories`)
   }
 
+  filterReposByName(term: string) {
+    return this.http.get<Repository[]>(`${this.apiBaseUrl}/repositories/search?term=${term}`)
+  }
+
   allCommits(repo_id: number): Observable<Commit[]> {
     return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits?repo_id=${repo_id}`)
   }

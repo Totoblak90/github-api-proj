@@ -19,7 +19,7 @@
   }
 }
 
-:host ::ng-deep input {
+:host ::ng-deep input, :host ::ng-deep select {
   border: none;
   outline: none;
   box-sizing: border-box;

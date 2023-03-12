@@ -6,16 +6,24 @@
   max-width: 768px;
   margin: auto;
   margin-bottom: $margin-medium;
-  fa-input {
-    width: 100%;
-    color: #000;
-    font-weight: 900;
-    font-size: $font-size-default;
 
-    @media (min-width: 768px) {
-      font-size: $font-size-xl;
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    fa-input {
+      width: 100%;
+      color: #000;
+      font-weight: 900;
+      font-size: $font-size-default;
+
+      @media (min-width: 768px) {
+        font-size: $font-size-xl;
+      }
     }
   }
+
 }
 
 .repo-list {

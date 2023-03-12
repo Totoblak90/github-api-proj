@@ -16,9 +16,9 @@ export class RepoItemComponent implements OnInit {
   ngOnInit(): void {
     // I open the repo you are interested in
     // This is not a scalabale code but it serves for this
-    // if (this.repo?.repo_id === 612344469) {
-    //   this.seeMore()
-    // }
+    if (this.repo?.repo_id === 612344469) {
+      this.seeMore()
+    }
   }
 
 

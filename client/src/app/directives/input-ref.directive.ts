@@ -1,7 +1,7 @@
 import { Directive, HostListener } from '@angular/core';
 
 @Directive({
-  selector: 'fa-input input, fa-input textarea'
+  selector: 'fa-input input, fa-input textarea, fa-input select'
 })
 export class InputRefDirective {
 

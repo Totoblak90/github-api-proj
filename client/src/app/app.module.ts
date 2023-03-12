@@ -19,6 +19,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { InputComponent } from './ui/input/input.component';
 import { FaIconComponent } from './ui/fa-icon/fa-icon.component';
 import { InputRefDirective } from './directives/input-ref.directive';
+import { SortReposPipe } from './pipes/sort-repos.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { InputRefDirective } from './directives/input-ref.directive';
     FilterComponent,
     InputComponent,
     FaIconComponent,
-    InputRefDirective
+    InputRefDirective,
+    SortReposPipe
   ],
   imports: [
     BrowserModule,
