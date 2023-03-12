@@ -11,12 +11,15 @@ export class CommitsService {
         return this.prismaService.commit.findMany({where: {repo_id}})
     }
 
-    filterCommitsByDate(startDate: Date, endDate: Date) {
+    filterCommitsByDate(startDate: Date, endDate: Date, repo_id: string) {
         return this.prismaService.commit.findMany({
             where: {
                 creation: {
                     gte: startDate,
                     lte: endDate,
+                },
+                repo_id: {
+                    equals: Number(repo_id)
                 }
             }
         })

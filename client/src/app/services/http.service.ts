@@ -25,7 +25,7 @@ export class HttpService {
     return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits?repo_id=${repo_id}`)
   }
 
-  fiterCommitsByDate(startDate: Date, endDate: Date): Observable<Commit[]> {
-    return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits/search?start_date=${startDate}&end_date=${endDate}`)
+  fiterCommitsByDate(startDate: Date, endDate: Date, repo_id: number): Observable<Commit[]> {
+    return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits/search?start_date=${startDate}&end_date=${endDate}&repo_id=${repo_id}`)
   }
 }

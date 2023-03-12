@@ -62,7 +62,7 @@ export class FilterComponent implements OnInit {
 
     if (this.filterForm.valid) {
 
-      this.httpService.fiterCommitsByDate(startDate, endDate)
+      this.httpService.fiterCommitsByDate(startDate, endDate, this.commitList[0].repo_id)
       .subscribe(res => {
 
         if (res.length) {
