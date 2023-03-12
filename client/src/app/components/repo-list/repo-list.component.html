@@ -1,4 +1,13 @@
 
-<section class="repo-list" *ngIf="repoList.length">
-  <repo-item *ngFor="let repo of repoList" [repo]="repo"></repo-item>
+<section>
+  <article class="search-container">
+    <form [formGroup]="filterForm">
+      <fa-input icon="magnifying-glass">
+        <input type="search" placeholder="Filter by name" formControlName="search"/>
+      </fa-input>
+    </form>
+  </article>
+  <article class="repo-list" *ngIf="repoList.length">
+    <repo-item *ngFor="let repo of repoList" [repo]="repo"></repo-item>
+  </article>
 </section>

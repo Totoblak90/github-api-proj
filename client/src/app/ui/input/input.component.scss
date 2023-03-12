@@ -1,0 +1,37 @@
+@import "src/theme/variables";
+
+:host {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  border: 0.1rem solid lightgray;
+  background: #fff;
+  padding: $padding-xs;
+  border-radius: 0.3rem;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  fa-icon {
+    align-self: flex-start;
+  }
+}
+
+:host ::ng-deep input {
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  color: $font-color-1;
+  text-transform: uppercase;
+  flex-grow: 1;
+  background: #fff;
+  height: 100%;
+}
+
+:host(.input-focus) {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba( $color-secondary, 0.2);
+  -webkit-box-shadow: 0 0 0 0.3rem rgba( $color-secondary, 0.2);
+}

@@ -16,6 +16,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FilterComponent } from './components/filter/filter.component';
+import { InputComponent } from './ui/input/input.component';
+import { FaIconComponent } from './ui/fa-icon/fa-icon.component';
+import { InputRefDirective } from './directives/input-ref.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { FilterComponent } from './components/filter/filter.component';
     RepoItemComponent,
     CommitListComponent,
     CommitComponent,
-    FilterComponent
+    FilterComponent,
+    InputComponent,
+    FaIconComponent,
+    InputRefDirective
   ],
   imports: [
     BrowserModule,

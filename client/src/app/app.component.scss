@@ -14,6 +14,7 @@
   img {
     min-width: 30%;
     opacity: 0.1;
+    pointer-events: none;
   }
 
   img:nth-child(1), img:nth-child(2), img:nth-child(3) {
@@ -33,7 +34,7 @@
 main {
   padding: $padding-huge $padding-xs;
   width: 100%;
-}
-h1 {
-  text-align: center;
+  h1 {
+    text-align: center;
+  }
 }
