@@ -2,6 +2,9 @@
 
 .title {
   position: relative;
+  h3 {
+    text-align: center;
+  }
   .close {
     border: none;
     background-color: transparent;
@@ -14,24 +17,5 @@
     outline: none;
     color: #000;
     font-weight: 900;
-  }
-}
-
-.filter-form {
-  padding: 0 $padding-small $padding-medium $padding-small;
-  .actions {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    button {
-      padding: $padding-small $padding-medium;
-      border: none;
-      cursor: pointer;
-      border-radius: 11px;
-    }
-    button:first-child {
-      background-color: $background-color-1;
-    }
-
   }
 }

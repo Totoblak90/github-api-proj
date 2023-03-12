@@ -1,31 +1,12 @@
 <div class="title">
-  <h2>Commit list</h2>
+  <h2>{{ repoName }}</h2>
+  <h3>Commit list</h3>
   <button class="close" (click)="close()">
     <p>X</p>
   </button>
 </div>
 
-<form class="filter-form">
-  <h3>Filter</h3>
-  <mat-form-field appearance="fill">
-    <mat-label>Select start date</mat-label>
-    <mat-select matInput>
-      <mat-option class="mat-option" *ngFor="let commit of commitList" [value]="commit.creation">{{commit.creation | date:'medium'}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Select end date</mat-label>
-    <mat-select matInput>
-      <mat-option class="mat-option" *ngFor="let commit of commitList" [value]="commit.creation">{{commit.creation | date:'medium'}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <div class="actions">
-    <button type="submit"><p>Filter</p></button>
-    <button type="button" (click)="reset()"><p>Reset</p></button>
-  </div>
-</form>
+<filter [commitList]="commitList" (onReset)="filter($event)" (onSubmit)="filter($event)"></filter>
 
 <ng-container *ngFor="let commit of commitList">
   <commit [commit]="commit"></commit>

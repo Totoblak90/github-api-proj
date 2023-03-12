@@ -1,0 +1,32 @@
+@import "src/theme/variables";
+
+.filter-form {
+  padding: 0 $padding-small $padding-medium $padding-small;
+  .actions {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+
+    button {
+      padding: $padding-small $padding-medium;
+      border: none;
+      cursor: pointer;
+      border-radius: 11px;
+      transition: all 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:focus {
+        transform: scale(0.95);
+      }
+      &:blur {
+        transform: scale(1);
+      }
+    }
+
+    button:first-child {
+      background-color: $background-color-1;
+    }
+
+  }
+}

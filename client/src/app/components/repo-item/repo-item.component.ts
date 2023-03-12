@@ -17,16 +17,17 @@ export class RepoItemComponent implements OnInit {
     // I open the repo you are interested in
     // This is not a scalabale code but it serves for this
     if (this.repo?.repo_id === 612344469) {
-      this.dialog.open(CommitListComponent, {
-        data: this.repo?.commits
-      })
+      this.seeMore()
     }
   }
 
 
   seeMore() {
     this.dialog.open(CommitListComponent, {
-      data: this.repo?.commits,
+      data: {
+        commits: this.repo?.commits,
+        repoName: this.repo?.name
+      },
       panelClass: 'expansion-panel'
     })
   }

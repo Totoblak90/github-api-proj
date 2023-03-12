@@ -9,29 +9,29 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// // Define the palettes for your theme using the Material Design palettes available in palette.scss
-// // (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// // hue. Available color palettes: https://material.io/design/color/
-// $github-api-proj-client-primary: mat.define-palette(mat.$indigo-palette);
-// $github-api-proj-client-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$github-api-proj-client-primary: mat.define-palette(mat.$indigo-palette);
+$github-api-proj-client-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-// // The warn palette is optional (defaults to red).
-// $github-api-proj-client-warn: mat.define-palette(mat.$red-palette);
+// The warn palette is optional (defaults to red).
+$github-api-proj-client-warn: mat.define-palette(mat.$red-palette);
 
-// // Create the theme object. A theme consists of configurations for individual
-// // theming systems such as "color" or "typography".
-// $github-api-proj-client-theme: mat.define-light-theme((
-//   color: (
-//     primary: $github-api-proj-client-primary,
-//     accent: $github-api-proj-client-accent,
-//     warn: $github-api-proj-client-warn,
-//   )
-// ));
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$github-api-proj-client-theme: mat.define-light-theme((
+  color: (
+    primary: $github-api-proj-client-primary,
+    accent: $github-api-proj-client-accent,
+    warn: $github-api-proj-client-warn,
+  )
+));
 
-// // Include theme styles for core and each component used in your app.
-// // Alternatively, you can import and @include the theme mixins for each component
-// // that you are using.
-// @include mat.all-component-themes($github-api-proj-client-theme);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($github-api-proj-client-theme);
 
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
@@ -127,9 +127,10 @@ h2 {
   }
 }
 
-p {
+p, a {
   font-size: $font-size-default;
   line-height: $line-height-big;
+  text-decoration: none;
   @media (min-width: 768px) {
     font-size: $font-size-xl;
   }
@@ -138,6 +139,9 @@ p {
 .expansion-panel {
   max-height: 100vh;
   overflow-y: auto;
+  max-width: 1024px;
+  width: 100%;
+
 }
 
 mat-form-field {
@@ -151,4 +155,14 @@ mat-form-field {
   font-size: $font-size-default;
 }
 
+mat-error {
+  p {
+    color: $color-danger;
+    font-size: $font-size-sm;
+    text-align: center;
+    @media (min-width: 768px) {
+      font-size: $font-size-default;
+    }
+  }
+}
 

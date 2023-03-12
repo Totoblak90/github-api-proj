@@ -1,0 +1,38 @@
+<form class="filter-form" [formGroup]="filterForm" (ngSubmit)="filter()">
+  <h3>Filter (results: {{ commitList.length }})</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Select start date</mat-label>
+    <mat-select matInput formControlName="startDate">
+      <mat-option class="mat-option" *ngFor="let commit of commitList" [value]="commit.creation">{{commit.creation | date:'medium'}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select end date</mat-label>
+    <mat-select matInput formControlName="endDate">
+      <mat-option class="mat-option" *ngFor="let commit of commitList" [value]="commit.creation">{{commit.creation | date:'medium'}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="actions">
+    <button type="submit"><p>Filter</p></button>
+    <button type="button" (click)="reset()"><p>Reset</p></button>
+  </div>
+
+  <mat-error *ngIf="showError">
+    <p>
+      Missing required values
+    </p>
+  </mat-error>
+  <mat-error *ngIf="noResults">
+    <p>
+      No results on that specified time
+    </p>
+  </mat-error>
+
+  <mat-error *ngIf="invalidDateOrder">
+    <p>
+      The specified order is incorrect
+    </p>
+  </mat-error>
+</form>

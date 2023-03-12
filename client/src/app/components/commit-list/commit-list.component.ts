@@ -1,8 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { take } from 'rxjs';
 import { Commit } from 'src/app/interface/commit.interface';
-import { HttpService } from '../../services/http.service';
+
+interface CommitExpansionModule {
+  commits: Commit[],
+  repoName: string;
+}
 
 @Component({
   selector: 'app-commit-list',
@@ -11,20 +14,23 @@ import { HttpService } from '../../services/http.service';
 })
 export class CommitListComponent {
 
+  commitList: Commit[] = [];
+  repoName = ''
+
   constructor(
     public dialogRef: MatDialogRef<CommitListComponent>,
-    @Inject(MAT_DIALOG_DATA) public commitList: Commit[],
-    private httpService: HttpService
+    @Inject(MAT_DIALOG_DATA) public data: CommitExpansionModule
   ) {
-    this.commitList.sort((prevCommit, nextCommit) => prevCommit.creation > nextCommit.creation ? 1 : -1)
+    this.commitList = data.commits;
+    this.repoName = data.repoName;
   }
 
   close() {
     this.dialogRef.close()
   }
 
-  reset() {
-    this.httpService.allCommits(this.commitList[0].repo_id).pipe(take(1))
-    .subscribe(res => this.commitList = res.sort((prevCommit, nextCommit) => prevCommit.creation > nextCommit.creation ? 1 : -1))
+  filter(commitList: Commit[]) {
+    this.commitList = commitList;
   }
+
 }

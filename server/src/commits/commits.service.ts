@@ -15,8 +15,8 @@ export class CommitsService {
         return this.prismaService.commit.findMany({
             where: {
                 creation: {
-                    gt: startDate,
-                    lt: endDate,
+                    gte: startDate,
+                    lte: endDate,
                 }
             }
         })

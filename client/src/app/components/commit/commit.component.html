@@ -7,7 +7,8 @@
           <p class="creation">{{ commit.creation | date:'medium' }}</p>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <p class="message">{{ commit.message }}</p>
+      <p class="message">{{ commit.message }}. <a [href]="commit.redirect_url" target="_blank">See more...</a></p>
+
     </mat-expansion-panel>
   </mat-accordion>
 </ng-container>
