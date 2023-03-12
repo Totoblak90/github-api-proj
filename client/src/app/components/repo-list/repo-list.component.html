@@ -1,7 +1,10 @@
 
 <section>
+
   <article class="search-container">
+
     <form [formGroup]="filterForm">
+
       <fa-input icon="magnifying-glass">
         <input type="search" placeholder="Filter by name" formControlName="search"/>
       </fa-input>
@@ -13,15 +16,14 @@
           <option value="Z-A">Z-A</option>
         </select>
       </fa-input>
-      <!-- <mat-form-field appearance="fill">
-        <mat-label>Select end date</mat-label>
-        <mat-select matInput formControlName="endDate">
-          <mat-option class="mat-option" >1</mat-option>
-        </mat-select>
-      </mat-form-field> -->
+
     </form>
+
   </article>
+
+
   <article class="repo-list" *ngIf="repoList.length">
     <repo-item *ngFor="let repo of (repoList | sortRepos:sortingValue)" [repo]="repo"></repo-item>
   </article>
+
 </section>

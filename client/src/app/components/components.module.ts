@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UiModule } from '../ui/ui.module';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { PipesModule } from '../pipes/pipes.module';
+import { DirectivesModule } from '../directives/directives.module';
 
 
 
@@ -33,7 +34,8 @@ import { PipesModule } from '../pipes/pipes.module';
     ReactiveFormsModule,
     UiModule,
     AngularMaterialModule,
-    PipesModule
+    PipesModule,
+    DirectivesModule
   ]
 })
 export class ComponentsModule { }
