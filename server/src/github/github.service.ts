@@ -13,7 +13,6 @@ export class GithubService {
     constructor(private httpService: HttpService, private confiService: ConfigService, private prismaService: PrismaService) {}
 
     getPublicRepositories(): Observable<Repo[]> {
-        console.log(this.confiService.get('GITHUB_ACCES_TOKEN'))
         return this.httpService.get(`https://api.github.com/users/Totoblak90/repos`, {
             params: {
                 visibility: 'public',
