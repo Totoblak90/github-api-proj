@@ -1,18 +1,21 @@
 <form class="filter-form" [formGroup]="filterForm" (ngSubmit)="filter()">
   <h3>Filter (results: {{ commitList.length }})</h3>
-  <mat-form-field appearance="fill">
-    <mat-label>Select start date</mat-label>
-    <mat-select matInput formControlName="startDate">
-      <mat-option class="mat-option" *ngFor="let commit of commitList" [value]="commit.creation">{{commit.creation | date:'medium'}}</mat-option>
-    </mat-select>
-  </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Select end date</mat-label>
-    <mat-select matInput formControlName="endDate">
-      <mat-option class="mat-option" *ngFor="let commit of commitList" [value]="commit.creation">{{commit.creation | date:'medium'}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="inputs">
+    <fa-input icon="sort">
+      <select formControlName="startDate">
+        <option [value]="null">Select start date</option>
+        <option *ngFor="let commit of commitList" [value]="commit.creation">{{commit.creation | date:'medium'}}</option>
+      </select>
+    </fa-input>
+
+    <fa-input icon="sort">
+      <select  formControlName="endDate">
+        <option [value]="null">Select end date</option>
+        <option *ngFor="let commit of commitList" [value]="commit.creation">{{commit.creation | date:'medium'}}</option>
+      </select>
+    </fa-input>
+  </div>
 
   <div class="actions">
     <button type="submit"><p>Filter</p></button>

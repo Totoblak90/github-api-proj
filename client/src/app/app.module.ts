@@ -5,10 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { ComponentsModule } from './components/components.module';
-import { AngularMaterialModule } from './angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -19,9 +17,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
-    ComponentsModule,
-    AngularMaterialModule
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

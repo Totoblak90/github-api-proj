@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -13,13 +12,11 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     MatExpansionModule,
     MatFormFieldModule,
-    MatSelectModule,
   ],
   exports: [
     MatDialogModule,
     MatExpansionModule,
     MatFormFieldModule,
-    MatSelectModule,
   ]
 })
 export class AngularMaterialModule { }

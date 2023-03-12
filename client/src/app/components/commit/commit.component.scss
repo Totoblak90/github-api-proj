@@ -4,6 +4,10 @@ mat-accordion {
   mat-expansion-panel {
     padding: 5px;
 
+    .creation {
+      font-size: $font-size-default;
+      font-weight: 600;
+    }
     .message {
       padding: 5px;
     }
