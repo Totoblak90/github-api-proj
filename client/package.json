@@ -2,6 +2,7 @@
   "name": "github-api-proj-client",
   "version": "0.0.0",
   "scripts": {
+    "init": "npm i && ng serve -o",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
