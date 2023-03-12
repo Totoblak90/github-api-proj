@@ -147,17 +147,6 @@ p, a {
   width: 100%;
 }
 
-mat-form-field {
-  width: 100%;
-  font-size: $font-size-default;
-  background-color: #fff;
-}
-
-[id*="mat-option-"] {
-  background-color: #fff;
-  font-size: $font-size-default;
-}
-
 mat-error {
   p {
     color: $color-danger;
