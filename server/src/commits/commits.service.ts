@@ -19,7 +19,7 @@ export class CommitsService {
                     lt: endDate,
                 }
             }
-        }).then(console.log)
+        })
     }
 
 }
