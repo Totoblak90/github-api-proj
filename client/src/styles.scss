@@ -93,29 +93,42 @@ li,
 a {
   font-family: $font-family-primary !important;
   color: $color-secondary;
-
 }
 
 h1 {
   font-size: $font-size-h1-mobile;
   line-height: $line-height-big;
   margin-bottom: $margin-large;
+  text-align: center;
   @media (min-width: 768px) {
     font-size: $font-size-h1;
     margin-bottom: $margin-huge;
   }
 }
 
+h3 {
+  font-size: $font-size-h3-mobile;
+  line-height: $line-height-normal;
+  margin-bottom: $margin-small;
+  @media (min-width: 768px) {
+    font-size: $font-size-h3;
+    margin-bottom: $margin-medium;
+  }
+}
+
 h2 {
   font-size: $font-size-h2-mobile;
   line-height: $line-height-big;
+  margin-bottom: $margin-medium;
+  text-align: center;
   @media (min-width: 768px) {
     font-size: $font-size-h2;
+    margin-bottom: $margin-large;
   }
 }
 
 p {
-  font-size: $font-size-sm;
+  font-size: $font-size-default;
   line-height: $line-height-big;
   @media (min-width: 768px) {
     font-size: $font-size-xl;
@@ -126,3 +139,16 @@ p {
   max-height: 100vh;
   overflow-y: auto;
 }
+
+mat-form-field {
+  width: 100%;
+  font-size: $font-size-default;
+  background-color: #fff;
+}
+
+[id*="mat-option-"] {
+  background-color: #fff;
+  font-size: $font-size-default;
+}
+
+

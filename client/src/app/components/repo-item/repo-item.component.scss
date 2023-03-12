@@ -1,4 +1,5 @@
 @import "src/theme/variables";
+@import "src/theme/animations";
 
 .circle {
   position: relative;
@@ -14,6 +15,8 @@
   cursor: pointer;
   padding: $padding-xs;
   background-color: transparent;
+  animation: fadeInLeft 0.3s linear;
+  transition: all 0.3s;
 
   @media (min-width: 768px) {
     width: calc(42.5rem / 2);
@@ -23,8 +26,11 @@
   p {
     word-wrap: break-word;
     overflow-wrap: break-word;
+    font-size: $font-size-sm;
+    @media (min-width: 768px) {
+      font-size: $font-size-xl;
+    }
   }
-
 }
 
 .circle::before {

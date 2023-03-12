@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Commit } from 'src/app/interface/commit.interface';
 
 @Component({
@@ -6,14 +6,9 @@ import { Commit } from 'src/app/interface/commit.interface';
   templateUrl: './commit.component.html',
   styleUrls: ['./commit.component.scss']
 })
-export class CommitComponent implements OnInit{
+export class CommitComponent{
   @Input() commit: Commit | undefined;
 
   panelOpenState = false;
-
-
-  ngOnInit(): void {
-    console.log(this.commit)
-  }
 
 }

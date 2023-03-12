@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Commit } from '../interface/commit.interface';
 import { Repository } from '../interface/repository.interface';
 
 @Injectable({
@@ -14,5 +15,13 @@ export class HttpService {
 
   allRepos(): Observable<Repository[]> {
     return this.http.get<Repository[]>(`${this.apiBaseUrl}/repositories`)
+  }
+
+  allCommits(repo_id: number): Observable<Commit[]> {
+    return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits?repo_id=${repo_id}`)
+  }
+
+  fiterCommitsByDate(startDate: Date, endDate: Date): Observable<Commit[]> {
+    return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits/search?start_date=${startDate}&end_date=${endDate}`)
   }
 }
