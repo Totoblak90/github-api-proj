@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { RepoDBResponse } from 'src/interfaces';
 import { RepositoriesService } from './repositories.service';
 
@@ -16,5 +16,10 @@ export class RepositoriesController {
         } catch (error) {
             return error;
         }
+    }
+
+    @Get('/search')
+    async filterCommitsByDate(@Query('term') term: string) {
+        return await this.repositoriesService.filterRepos(term);
     }
 }

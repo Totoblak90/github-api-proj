@@ -15,4 +15,18 @@ export class RepositoriesService {
         })
     }
 
+    filterRepos(term: string): Promise<(RepoDBResponse | null)[]> {
+        return this.prismaService.repository.findMany({
+            where: {
+                name: {
+                  contains: term,
+                  mode: 'insensitive'
+                }
+            },
+            include: {
+                commits: true
+            }
+        })
+    }
+
 }
