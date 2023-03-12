@@ -8,7 +8,6 @@ import { RepoDBResponse, GithubCommitFullResponse, Commit, PrismaCommit } from '
 import { take } from 'rxjs/operators';
 import { CommitsModule } from './commits/commits.module';
 import { RepositoriesModule } from './repositories/repositories.module';
-import { CommitsService } from './commits/commits.service';
 
 
 @Module({
@@ -57,6 +56,7 @@ export class AppModule implements OnApplicationBootstrap {
             resolve(true)
         },
         error: (err) => {
+          console.log(err.response.data)
           const rateLimits: {[key: string]: any} = {
             x_ratelimit_limit: err.response.headers['x-ratelimit-limit'],
             x_ratelimit_remaining: err.response.headers['x-ratelimit-remaining'],
@@ -81,6 +81,7 @@ export class AppModule implements OnApplicationBootstrap {
             await this.addCommits(index + 1);
           },
           error: (err) => {
+            console.log(err.response.data)
             const rateLimits: {[key: string]: any} = {
               x_ratelimit_limit: err.response.headers['x-ratelimit-limit'],
               x_ratelimit_remaining: err.response.headers['x-ratelimit-remaining'],
