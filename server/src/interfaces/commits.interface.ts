@@ -1,3 +1,13 @@
+export interface PrismaCommit {
+    id: number
+    createdAt: Date;
+    updatedAt: Date
+    commit_id: string;
+    message: string;
+    redirect_url: string;
+    repo_id: number
+}
+
 export interface GithubCommitFullResponse {
     sha:          string;
     node_id:      string;

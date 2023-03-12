@@ -31,7 +31,11 @@ model Commit {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  repo_id Int @unique
+  commit_id String @unique
+  message String
+  redirect_url String
+
+  repo_id Int
   repository Repository @relation(fields: [repo_id], references: [repo_id])
 
   @@map("commits")
