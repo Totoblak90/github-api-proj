@@ -1,0 +1,60 @@
+/** COLORS **/
+$color-primary: #000;
+$color-secondary: #333;
+
+/** COLOR DE FONDO **/
+$background-color-1: #F5E6D3;
+
+/** TYPOGRAPHY **/
+$font-family-primary: 'Flamenco', cursive;
+$font-family-secondary: 'Fredoka One', cursive;
+
+
+$font-size-default: 1.6rem;
+$font-size-sm: 1.4rem;
+$font-size-xs: 1.2rem;
+$font-size-lg: 2rem;
+$font-size-xl: 2.4rem;
+
+$font-size-h1: 4.2rem;
+$font-size-h1-mobile: 2.7rem;
+$font-size-h2: 3.6rem;
+$font-size-h2-mobile: 2.4rem;
+$font-size-h3: 3rem;
+$font-size-h3-mobile: 2.1rem;
+
+$font-color-1: #333;
+
+$weight-normal: 500;
+$weight-light: 300;
+$weight-bold: 700;
+
+$line-height-small: 1.05;
+$line-height-normal: 1.1;
+$line-height-big: 1.25;
+
+/** SPACING **/
+$margin-xs: 0.75rem;
+$margin-small: 1rem;
+$margin-medium: 2rem;
+$margin-large: 3rem;
+$margin-xl: 4rem;
+$margin-xxl: 5rem;
+$margin-huge: 6rem;
+
+$padding-xs: 0.75rem;
+$padding-small: 1rem;
+$padding-medium: 2rem;
+$padding-large: 3rem;
+$padding-xl: 4rem;
+$padding-xxl: 5rem;
+$padding-huge: 6rem;
+
+/** BORDER-RADIUS **/
+$border-radius-default: 1.1rem;
+$border-radius-small: 0.9rem;
+
+/** TRANSITIONS **/
+$transition-short: 0.2s;
+$transition-medium: 0.5s;
+$transition-long: 1s;

@@ -1,1 +1,128 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// // Define the palettes for your theme using the Material Design palettes available in palette.scss
+// // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// // hue. Available color palettes: https://material.io/design/color/
+// $github-api-proj-client-primary: mat.define-palette(mat.$indigo-palette);
+// $github-api-proj-client-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// // The warn palette is optional (defaults to red).
+// $github-api-proj-client-warn: mat.define-palette(mat.$red-palette);
+
+// // Create the theme object. A theme consists of configurations for individual
+// // theming systems such as "color" or "typography".
+// $github-api-proj-client-theme: mat.define-light-theme((
+//   color: (
+//     primary: $github-api-proj-client-primary,
+//     accent: $github-api-proj-client-accent,
+//     warn: $github-api-proj-client-warn,
+//   )
+// ));
+
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+// @include mat.all-component-themes($github-api-proj-client-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Flamenco:wght@300;400&display=swap');
+@import "./theme/variables";
+@import "./theme/utilities.scss";
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  line-height: $line-height-small;
+  font-weight: inherit;
+  font-family: $font-family-primary;
+  font-size: inherit;
+  color: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-weight: $weight-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $font-color-1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+li,
+a {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-secondary !important;
+  color: $color-primary;
+}
+
+p,
+span,
+label,
+li,
+a {
+  font-family: $font-family-primary !important;
+  color: $color-secondary;
+
+}
+
+h1 {
+  font-size: $font-size-h1-mobile;
+  line-height: $line-height-big;
+  margin-bottom: $margin-large;
+  @media (min-width: 768px) {
+    font-size: $font-size-h1;
+    margin-bottom: $margin-huge;
+  }
+}
+
+h2 {
+  font-size: $font-size-h2-mobile;
+  line-height: $line-height-big;
+  @media (min-width: 768px) {
+    font-size: $font-size-h2;
+  }
+}
+
+p {
+  font-size: $font-size-sm;
+  line-height: $line-height-big;
+  @media (min-width: 768px) {
+    font-size: $font-size-xl;
+  }
+}
+
+.expansion-panel {
+  max-height: 100vh;
+  overflow-y: auto;
+}

@@ -8,7 +8,11 @@ export class RepositoriesService {
     constructor(private prismaService: PrismaService) {}
 
     fetchRepos(): Promise<(RepoDBResponse | null)[]> {
-        return this.prismaService.repository.findMany()
+        return this.prismaService.repository.findMany({
+            include: {
+                commits: true
+            }
+        })
     }
 
 }

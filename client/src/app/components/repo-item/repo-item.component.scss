@@ -1,0 +1,52 @@
+@import "src/theme/variables";
+
+.circle {
+  position: relative;
+  border: 1px solid #000;
+  border-radius: 1000px;
+  width: calc(42.5rem / 4);
+  height: calc(42.5rem / 4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  padding: $padding-xs;
+  background-color: transparent;
+
+  @media (min-width: 768px) {
+    width: calc(42.5rem / 2);
+    height: calc(42.5rem / 2);
+  }
+
+  p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+}
+
+.circle::before {
+  content: "";
+  display: block;
+  border-radius: 1000px;
+  width: calc(42.5rem / 4);
+  height: calc(42.5rem / 4);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: $background-color-1;
+  -webkit-backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
+  z-index: -1;
+
+  @media (min-width: 768px) {
+    top: 20px;
+    left: 20px;
+    width: calc(42.5rem / 2);
+    height: calc(42.5rem / 2);
+  }
+
+
+}

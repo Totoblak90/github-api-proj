@@ -1,0 +1,14 @@
+@import "src/theme/variables";
+
+.repo-list {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: $margin-large;
+  align-items: center;
+  justify-items: center;
+  max-width: 128rem;
+  @media (min-width: 540px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
