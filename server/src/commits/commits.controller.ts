@@ -8,8 +8,14 @@ export class CommitsController {
 
     constructor(private commitsService: CommitsService) {}
 
+    @Get('/search')
+    async filterCommitsByDate(@Query('start_date') startDate: Date, @Query('end_date') endDate: Date) {
+        return await this.commitsService.filterCommitsByDate(startDate, endDate);
+    }
+
     @Get()
     async fetchFullCommitList(@Query('repo_id') repo_id: string) {
         return await this.commitsService.fetchAllCommits(Number(repo_id))
     }
+
 }

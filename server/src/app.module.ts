@@ -8,6 +8,7 @@ import { RepoDBResponse, GithubCommitFullResponse, Commit, PrismaCommit } from '
 import { take } from 'rxjs/operators';
 import { CommitsModule } from './commits/commits.module';
 import { RepositoriesModule } from './repositories/repositories.module';
+import { CommitsService } from './commits/commits.service';
 
 
 @Module({
@@ -25,8 +26,13 @@ export class AppModule implements OnApplicationBootstrap {
   constructor(private githubService: GithubService, private prismaService: PrismaService) {}
 
   async onApplicationBootstrap() {
-    await this.addRepos();
-    await this.addCommits();
+    const repos = await this.prismaService.repository.findMany()
+    const commits = await this.prismaService.commit.findMany()
+
+    if (!repos.length || !commits.length) {
+      await this.addRepos();
+      await this.addCommits();
+    }
   }
 
   addRepos() {
@@ -94,7 +100,8 @@ export class AppModule implements OnApplicationBootstrap {
   private createCommitIfExists(commitList: GithubCommitFullResponse[], repoId: number) {
     return new Promise<boolean>(async (resolve, reject) => {
       for (const commit of commitList) {
-        let existingRecord = await this.prismaService.commit.findUnique({ where: {commit_id: commit.sha}})
+        let existingRecord = await this.prismaService.commit.findUnique({ where: {commit_id: commit.sha}});
+
         if (!existingRecord) {
           existingRecord = await this.prismaService.commit.create({data: {
             commit_id: commit.sha,
