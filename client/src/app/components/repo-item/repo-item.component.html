@@ -1,3 +1,3 @@
-<button class="circle" *ngIf="repo" (click)="seeMore()">
+<button class="circle" [ngClass]="{'red': repo.repo_id === 612344469}" *ngIf="repo" (click)="seeMore()">
   <p>{{ repo.name }}</p>
 </button>

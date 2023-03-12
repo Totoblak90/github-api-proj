@@ -16,7 +16,7 @@ export class InputComponent implements AfterContentInit {
   @Output() onClick: EventEmitter<boolean> = new EventEmitter();
 
   ngAfterContentInit(): void {
-    if (!this.input) console.error('Hay que pasar un input si o si al componente fa-input')
+    if (!this.input) console.error("It's mandatory to provide an input or a select")
   }
 
   @HostBinding('class.input-focus')
