@@ -34,6 +34,7 @@ model Commit {
   commit_id String @unique
   message String
   redirect_url String
+  creation DateTime @default(now())
 
   repo_id Int
   repository Repository @relation(fields: [repo_id], references: [repo_id])

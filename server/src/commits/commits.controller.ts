@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { CommitsService } from './commits.service';
 
 @Controller({
@@ -8,11 +8,8 @@ export class CommitsController {
 
     constructor(private commitsService: CommitsService) {}
 
-    @Get(':repo_id')
-    async fetchFullCommitList(@Param('repo_id') repo_id: string) {
-        const parsedRepoId = Number(repo_id.split('=')[1])
-        console.log(await this.commitsService.fetchAllCommits(parsedRepoId))
-        
-        return await this.commitsService.fetchAllCommits(parsedRepoId)
+    @Get()
+    async fetchFullCommitList(@Query('repo_id') repo_id: string) {
+        return await this.commitsService.fetchAllCommits(Number(repo_id))
     }
 }

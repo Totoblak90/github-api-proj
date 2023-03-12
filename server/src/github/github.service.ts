@@ -2,14 +2,15 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config/dist';
 import { Observable } from 'rxjs';
-import { map, filter, tap, catchError } from 'rxjs/operators';
+import { map, filter, tap, catchError, take } from 'rxjs/operators';
 import * as flatted from 'flatted';
-import { GithubFullResponse, Repo } from 'src/interfaces';
+import { GithubFullResponse, PrismaCommit, Repo, RepoDBResponse } from 'src/interfaces';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable({})
 export class GithubService {
 
-    constructor(private httpService: HttpService, private confiService: ConfigService) {}
+    constructor(private httpService: HttpService, private confiService: ConfigService, private prismaService: PrismaService) {}
 
     getPublicRepositories(): Observable<Repo[]> {
         return this.httpService.get(`https://api.github.com/users/Totoblak90/repos`, {
@@ -18,7 +19,7 @@ export class GithubService {
               },
             headers: {
                 Accept: 'application/vnd.github.v3+json',
-                Authorization: this.confiService.get('GITHUB_ACCES_TOKEN')
+                Authorization: `Bearer ${this.confiService.get('GITHUB_ACCES_TOKEN')}`
             },
         }).pipe(
             map(response => flatted.parse(flatted.stringify(response.data)) as GithubFullResponse[]),
@@ -39,12 +40,54 @@ export class GithubService {
         return this.httpService.get(`https://api.github.com/repos/Totoblak90/${repoName}/commits`, {
             headers: {
                 Accept: 'application/vnd.github.v3+json',
-                Authorization: this.confiService.get('GITHUB_ACCES_TOKEN')
+                Authorization: `Bearer ${this.confiService.get('GITHUB_ACCES_TOKEN')}`
             },
         })
         .pipe(
             map((response: any) => flatted.parse(flatted.stringify(response.data))),
         )
+    }
+
+    async updateCommitCreationDate(commit: PrismaCommit) {
+        try {
+            const { repo_id, commit_id } = commit;
+    
+            const repository: RepoDBResponse | null = await this.prismaService.repository.findUnique({where: {repo_id}})
+    
+            if (repository) {
+                this.httpService.get(`https://api.github.com/repos/Totoblak90/${repository.name}/commits/${commit_id}`, {
+                        headers: {
+                            Accept: 'application/vnd.github.v3+json',
+                            Authorization: `Bearer ${this.confiService.get('GITHUB_ACCES_TOKEN')}`
+                        },
+                    })
+                    .pipe(
+                        take(1),
+                        map((response: any) => flatted.parse(flatted.stringify(response.data))),
+                        map(response => new Date(response.commit.author.date))
+                    )
+                    .subscribe({
+                        next: async (creationDate) => {
+                            const update = await this.prismaService.commit.update({
+                                where: { commit_id },
+                                data: { creation: creationDate }
+                            })
+                        },
+                        error: (err) => {
+                            const rateLimits: {[key: string]: any} = {
+                                x_ratelimit_limit: err.response.headers['x-ratelimit-limit'],
+                                x_ratelimit_remaining: err.response.headers['x-ratelimit-remaining'],
+                                x_ratelimit_reset: err.response.headers['x-ratelimit-reset'],
+                                x_ratelimit_used: err.response.headers['x-ratelimit-used'],
+                              }
+                              console.log(rateLimits, 'updateCommitCreationDate')
+                        }
+                    })
+            }
+            
+        } catch (error) {
+            console.log(error, 'updateCommitCreationDate')
+        }
     }
 
 
