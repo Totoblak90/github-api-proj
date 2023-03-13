@@ -1,9 +1,11 @@
 # github-api-proj
-This is a project to see the commit history of a specific repository
+This is a project to see the commit history of every public repository on my github account
 
 ## Project Objective
 
-The objective of this project is to use the Github API to display the commit history of this reopsitory. While thinking about what else could be added to the project, I decided to make all my public repositories available for users to browse and view the commit history for each repository. Additionally, to make it easier for users, I **highlighted** the item button that will open the commits for this repository with a different color. I hope you like it!
+**
+The objective of this project is to use the Github API to display the commit history of this reopsitory. While thinking about what else could be added to the project, I decided to make all my public repositories available for users to browse and view the commit history for each repository. Additionally, to make it easier for users, I highlighted the item button that will open the commits for this repository with a different color. I hope you like it!
+**
 
 I decided to implement a database because it would allow me to efficiently filter and query commits and repositories.
 
