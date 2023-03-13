@@ -70,7 +70,36 @@ export class AppModule implements OnApplicationBootstrap {
     })
   }
 
-  // I created a recursive function to increase the time between requests to the Github API due to the ratelimit issue.
+  /* 
+   * IDEA FOR PAGINATION
+   * 
+   * Here it would be good to add pagination for all those repositories that have more than 100 commits, 
+   * due to time constraints I can't do it but I'll write down how I would do it. 
+   * Because of the way I approached the project, which is to load all existing commits and save them in a database, 
+   * when requesting the commits of a specific repository from Github, I would check if it has 100 commits. If that is the case, 
+   * I would request the next page of commits and check the number of commits in that response again. If it has 100, 
+   * I would request the next page and so on. I could easily do this with a recursive function.
+   *
+   * Then, from the front-end and already having all the commits that I need saved in the database and associated with the corresponding repository, 
+   * I would set a limit of 100 for the query that returns the commits of a repository to avoid sending too much data to the front-end and keep everything managed from the server. 
+   * If a repository has more than 100 commits, I could create a function on the server to paginate the items, 
+   * and all I would have to do from the front-end is change the page number. Prisma has a very simple way to do pagination.
+   * Here is a possible example (Not applicable for this case, but an idea of how the code could look like):
+   * 
+   *    @Get()
+   *    async commitPagination(
+   *      @Query('page') page: number = 1,
+   *      @Query('limit') limit: number = 100,
+   *    ): Promise<Commit[]> {
+   *       const commits = await this.prisma.commit.findMany({
+   *         skip: (page - 1) * limit,
+   *         take: limit,
+   *       });
+   *       return commits;
+   *    }
+  */
+
+  // I created a recursive function to increase the time between requests to the Github API due to the ratelimit issue. 
   addCommits(index = 0) {
     return new Promise<boolean>(async (resolve, reject) => {
       const repos: RepoDBResponse[] = await this.prismaService.repository.findMany();
