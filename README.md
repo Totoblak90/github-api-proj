@@ -56,9 +56,9 @@ This command will show the version of Docker installed on your system, indicatin
 
 1. Open a terminal and clone the project with the following command: `git clone https://github.com/Totoblak90/github-api-proj.git`
 2. Once the project is cloned, navigate from the terminal to the server folder, which is located inside the github-api-proj folder.
-3. **IMPORTANT**: Once inside that folder, paste the `.env` file that was sent on the email:
+3. **IMPORTANT**: Once inside that folder, paste the `.env` file that was sent on the email.
 4. Run the command:  
-    -   On macc or linux: `npm run init`;
+    -   On mac or linux: `npm run init`;
     -   On windows: `npm run init:windows`
     This command will install all the packages and perform all the necessary actions to run the project. Wait for it to finish.
 4. Once finished, run the command `npm run start:dev` to start the server and keep it running!

@@ -37,7 +37,7 @@ export class GithubService {
 
 
     getCommitHistory(repoName: string): Observable<any> {
-        return this.httpService.get(`https://api.github.com/repos/Totoblak90/${repoName}/commits`, {
+        return this.httpService.get(`https://api.github.com/repos/Totoblak90/${repoName}/commits?per_page=100`, {
             headers: {
                 Accept: 'application/vnd.github.v3+json',
                 Authorization: `Bearer ${this.confiService.get('GITHUB_ACCES_TOKEN')}`
