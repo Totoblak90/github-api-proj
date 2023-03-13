@@ -65,5 +65,5 @@ This command will show the version of Docker installed on your system, indicatin
     This command will install all the packages and perform all the necessary actions to run the project. Wait for it to finish.
 5. Once finished, run the command `npm run start:dev` to start the server and keep it running!
 6. Open another terminal and navigate to the client folder, which is located inside the github-api-proj folder that you cloned.
-7. Once inside, run the command `npm run init`, which will install the necessary dependencies and open the web page in your browser. If by any reason the browser doesn't shows up, open your browser manually and whrite down the following url: http://localhost:4200, this is the server in wich angular will be listening by default.
+7. Once inside, run the command `npm run init`, which will install the necessary dependencies and open the web page in your browser. If by any reason the browser doesn't shows up, open your browser manually and write down the following url: http://localhost:4200, this is the server in wich angular will be listening by default.
 
